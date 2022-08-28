@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 
 // schema
 var postSchema = mongoose.Schema({
+  gen:{type:String},
   title:{type:String, required:[true,'Title is required!']},
   hashtag:{type:String, required:[true,'Body is required!']},
   body:{type:String, required:[true,'Body is required!']},
