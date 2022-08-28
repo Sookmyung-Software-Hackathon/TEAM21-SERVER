@@ -26,6 +26,14 @@
             <span class="invalid-feedback"><%= errors.title.message %></span>
           <% } %>
         </div>
+
+        <div class="form-group">
+          <label for="gen">gen</label>
+          <input type="text" id="gen" name="gen" value="<%= post.gen %>" class="form-control <%= (errors.gen)?'is-invalid':'' %>">
+          <% if(errors.gen){ %>
+            <span class="invalid-feedback"><%= errors.gen.message %></span>
+          <% } %>
+        </div>
         
         <div class="form-group">
           <label for="hashtag">hashtag</label>
