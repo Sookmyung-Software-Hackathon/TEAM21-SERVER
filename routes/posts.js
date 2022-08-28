@@ -10,7 +10,7 @@ router.get('/', function(req, res){
     .sort('-createdAt')
     .exec(function(err, posts){
       if(err) return res.json(err);
-      res.render('posts/index', {posts:posts});
+      res.json('posts/index', {posts:posts});
     });
 });
 
@@ -18,7 +18,7 @@ router.get('/', function(req, res){
 router.get('/new', util.isLoggedin,function(req, res){
   var post = req.flash('post')[0] || {};
   var errors = req.flash('errors')[0] || {};
-  res.render('posts/new', { post:post, errors:errors });
+  res.json('posts/new', { post:post, errors:errors });
 });
 
 // create
@@ -40,7 +40,7 @@ router.get('/:id', function(req, res){
     .populate('author')
     .exec(function(err, post){
       if(err) return res.json(err);
-      res.render('posts/show', {post:post});
+      res.json('posts/show', {post:post});
     });
 });
 
@@ -51,12 +51,12 @@ router.get('/:id/edit', util.isLoggedin, checkPermission, function(req, res){
   if(!post){
     Post.findOne({_id:req.params.id}, function(err, post){
         if(err) return res.json(err);
-        res.render('posts/edit', { post:post, errors:errors });
+        res.json('posts/edit', { post:post, errors:errors });
       });
   }
   else {
     post._id = req.params.id;
-    res.render('posts/edit', { post:post, errors:errors });
+    res.json('posts/edit', { post:post, errors:errors });
   }
 });
 
