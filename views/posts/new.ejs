@@ -27,6 +27,14 @@
         </div>
 
         <div class="form-group">
+          <label for="hashtag">hashtag</label>
+          <input type="text" id="hashtag" name="hashtag" value="<%= post.hashtag %>" class="form-control <%= (errors.hashtag)?'is-invalid':'' %>">
+          <% if(errors.hashtag){ %>
+            <span class="invalid-feedback"><%= errors.hashtag.message %></span>
+          <% } %>
+        </div>
+
+        <div class="form-group">
           <label for="body">Body</label>
           <textarea id="body" name="body" rows="5" class="form-control <%= (errors.body)?'is-invalid':'' %>"><%= post.body %></textarea>
           <% if(errors.body){ %>
