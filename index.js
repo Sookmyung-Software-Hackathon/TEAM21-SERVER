@@ -6,6 +6,10 @@ var flash = require('connect-flash');
 var session = require('express-session');
 var passport = require('./config/passport');
 var app = express();
+const cors = require('cors');
+
+app.use(express.json());
+app.use(cors());
 
 // DB setting
 mongoose.connect(
